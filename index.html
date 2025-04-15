@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Under Maintenance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f9fafb;
+      color: #1f2937;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .background-banner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-image: url('images/Consulting.png');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    header {
+      background-color: #ffffffcc;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 10;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 1rem 2rem;
+    }
+
+    .logo-small {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-right: 1rem;
+    }
+
+    .toptext {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    nav {
+      width: 100%;
+      background-color: #ffffffcc;
+      border-top: 1px solid #e5e7eb;
+      padding: 0.75rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 20;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+      z-index: 20;
+    }
+
+    .nav-links li {
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      color: #374151;
+    }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      z-index: 25;
+    }
+
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background-color: #111827;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        padding: 1rem 2rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .burger {
+        display: flex;
+      }
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 2rem;
+      z-index: 5;
+    }
+
+    .content-box {
+      text-align: center;
+      padding: 3rem;
+      border-radius: 16px;
+      background-color: #ffffffee;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      max-width: 600px;
+      position: relative;
+      z-index: 6;
+      margin-left: -40px; /* Shift to the left */
+    }
+
+    .content-box img.logo {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #111827;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #4b5563;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .contact-btn {
+      padding: 0.75rem 1.5rem;
+      background-color: #f20202;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background-color: #c60000;
+    }
+
+    .plane {
+      position: absolute;
+      top: 40%;
+      left: -100px;
+      font-size: 2.5rem;
+      animation: flyAcross 8s linear infinite;
+      z-index: 1;
+      color: #f20202;
+    }
+
+    @keyframes flyAcross {
+      0% {
+        left: -100px;
+        top: 40%;
+        transform: rotate(10deg);
+      }
+      50% {
+        top: 30%;
+        transform: rotate(0deg);
+      }
+      100% {
+        left: 110%;
+        top: 40%;
+        transform: rotate(-5deg);
+      }
+    }
+
+    footer {
+      background-color: #f20202;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      position: relative;
+      z-index: 5;
+    }
+
+    @media (max-width: 600px) {
+      .content-box {
+        padding: 2rem;
+        margin-left: 0;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      footer {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background-banner"></div>
+
+  <header>
+    <div class="header-top">
+      <img src="images/payanagg.png" alt="Plane Logo" class="logo-small">
+      <h1 class="toptext">PAYANA OVERSEAS SOLUTIONS</h1>
+    </div>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li>TECH / ARTS</li>
+        <li>DENTAL</li>
+        <li>MBBS</li>
+        <li>LANGUAGES</li>
+        <li>INVEST</li>
+        <li>WORK</li>
+      </ul>
+      <div class="burger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="content-box">
+      <img src="images/payanagg.png" alt="Main Plane Logo" class="logo">
+      <h1>We’re Updating Your Pathway Abroad</h1>
+      <p>Our platform is temporarily offline for maintenance as we fine-tune your global career experience. We’ll be back shortly to help you take off to new opportunities around the world.</p>
+      <a href="https://forms.gle/vBzqNaA9PKiWhPNN9" target="_blank">
+        <button class="contact-btn">Contact Us</button>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    📧 payanaoverseas@gmail.com &nbsp; | &nbsp; 📞 90036 19777
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById("navLinks");
+      navLinks.classList.toggle("show");
+    }
+  </script>
+
+</body>
+</html>
